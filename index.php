@@ -1,6 +1,7 @@
 <?php
 
-function generatePassword($length) {
+function generatePassword($length)
+{
     $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=';
     $password = '';
 
@@ -22,11 +23,13 @@ if (isset($_GET['length'])) {
 
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strong Password Generator</title>
 </head>
+
 <body>
     <h1>Strong Password Generator</h1>
 
@@ -41,4 +44,5 @@ if (isset($_GET['length'])) {
         <p><?php echo $password; ?></p>
     <?php endif; ?>
 </body>
+
 </html>

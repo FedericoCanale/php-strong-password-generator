@@ -1,12 +1,13 @@
 <?php
 
+session_start();
 require_once 'functions.php';
-
-$password = '';
 
 if (isset($_GET['length'])) {
     $length = (int) $_GET['length'];
-    $password = generatePassword($length);
+    $_SESSION['password'] = generatePassword($length);
+    header('Location: result.php');
+    exit;
 }
 
 ?>
@@ -28,11 +29,6 @@ if (isset($_GET['length'])) {
         <input type="number" name="length" id="length" min="1" required>
         <button type="submit">Genera</button>
     </form>
-
-    <?php if ($password) : ?>
-        <h2>La tua password:</h2>
-        <p><?php echo $password; ?></p>
-    <?php endif; ?>
 </body>
 
 </html>

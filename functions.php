@@ -1,8 +1,26 @@
 <?php
 
-function generatePassword($length)
+function generatePassword($length, $useLower, $useUpper, $useNumbers, $useSymbols)
 {
-    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=';
+    $chars = '';
+
+    if ($useLower) {
+        $chars .= 'abcdefghijklmnopqrstuvwxyz';
+    }
+    if ($useUpper) {
+        $chars .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    if ($useNumbers) {
+        $chars .= '0123456789';
+    }
+    if ($useSymbols) {
+        $chars .= '!@#$%^&*()_+-=';
+    }
+
+    if ($chars === '') {
+        return '';
+    }
+
     $password = '';
 
     for ($i = 0; $i < $length; $i++) {
